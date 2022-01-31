@@ -38,9 +38,10 @@ for (var i = 0; i < mat_trials.length; i++) {
             choices: ["f", "j"],
             width: 1024,
             height: 768,
+    slider_width: 400,
             trial_ends_after_video: false,
             response_allowed_while_playing: false,
-            prompt: "Which video, left or right, showed the same material as the top video? Please adjust the slider to indicate your relative confidence."
+            prompt: "Which video, left or right, showed the same material as the top video? Please adjust the slider to indicate your relative confidence. <br> (note: you can only do so after the video plays)"
         }
     )
 }

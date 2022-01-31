@@ -33,8 +33,6 @@ for group in ['Group' + str(i) for i in range(1, 4)]:
     material_trials = group_trials['matStim']
 
     for trial in extract_strings(material_trials):
-        # a_or_b = re.findall('[A-Z][^A-Z]*', trial[3])[1][0]
-        # print(trial)
         stim_name = trial[0] + '_' + trial[1] + '.mp4'
 
         # args 2 3 4 are stimuli filenames
@@ -47,9 +45,7 @@ for group in ['Group' + str(i) for i in range(1, 4)]:
             trial[4],
         ]
 
-
-        # print(' '.join(cmd))
-        # sp.call(cmd)
+        sp.call(cmd)
         paths[group]['material'].append(join(group_base_path, 'material', stim_name))
 
 
