@@ -32,21 +32,21 @@ for group in ['Group' + str(i) for i in range(1, 4)]:
 
     material_trials = group_trials['matStim']
 
-    for trial in extract_strings(material_trials):
-        stim_name = trial[0] + '_' + trial[1] + '.mp4'
+    # for trial in extract_strings(material_trials):
+    #     stim_name = trial[0] + '_' + trial[1] + '.mp4'
 
-        # args 2 3 4 are stimuli filenames
-        cmd = [
-            'bash',
-            'composite_videos.sh',
-            join(group_base_path, 'material', stim_name),
-            trial[2],
-            trial[3],
-            trial[4],
-        ]
+    #     # args 2 3 4 are stimuli filenames
+    #     cmd = [
+    #         'bash',
+    #         'composite_videos.sh',
+    #         join(group_base_path, 'material', stim_name),
+    #         trial[2],
+    #         trial[3],
+    #         trial[4],
+    #     ]
 
-        sp.call(cmd)
-        paths[group]['material'].append(join(group_base_path, 'material', stim_name))
+    #     sp.call(cmd)
+    #     paths[group]['material'].append(join(group_base_path, 'material', stim_name))
 
 
     paths[group]['shape'] = []
@@ -55,15 +55,32 @@ for group in ['Group' + str(i) for i in range(1, 4)]:
     for trial in extract_strings(shape_trials):
         # print(trial)
 
-        a_or_b = re.findall('[A-Z][^A-Z]*', trial[3])[1][0]
+        a_or_b = re.findall('[A-B][^A-B]*', trial[3])[1][0]
 
         folder = trial[0] + '_' + trial[1] + a_or_b
+        # folder = "_".join(trial)
         stim_name = folder + '.mp4'
-        os.makedirs(join(group_base_path, 'shape', folder), exist_ok=True)
+        # os.makedirs(join(group_base_path, 'shape', folder), exist_ok=True)
         # copy(join('videos', trial[2]), join(group_base_path, 'shape', folder, stim_name))
         # copy(join('videos', trial[3]), join(group_base_path, 'shape', folder, trial[3]))
         # copy(join('videos', trial[4]), join(group_base_path, 'shape', folder, trial[4]))
 
-        paths[group]['shape'].append([join(group_base_path, 'shape', folder, stim_name),
-                                      join(group_base_path, 'shape', folder, trial[3]),
-                                      join(group_base_path, 'shape', folder, trial[4])])
+        trial[2] = trial[2].replace('png', 'mp4')
+        trial[3] = trial[3].replace('png', 'mp4')
+        trial[4] = trial[4].replace('png', 'mp4')
+
+        cmd = [
+            'bash',
+            'composite_videos.sh',
+            join(group_base_path, 'shape', stim_name),
+            trial[2],
+            trial[3],
+            trial[4],
+        ]
+        print('command: ' + ' '.join(cmd))
+        sp.call(cmd)
+        paths[group]['shape'].append(# [
+            join(group_base_path, 'shape', folder, stim_name)# ,
+                                      # join(group_base_path, 'shape', folder, trial[3]),
+                                      # join(group_base_path, 'shape', folder, trial[4])# ]
+        )
