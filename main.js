@@ -1,7 +1,8 @@
 
 var jsPsych = initJsPsych({'override_safe_mode' : true});
 
-var group = jsPsych.randomization.shuffle([1, 2, 3])[0]
+var group_num = jsPsych.randomization.shuffle([1, 2, 3])[0]
+var group = 'Group' + group_num
 
 // var preload = {
 //     type: jsPsychPreload,
@@ -25,25 +26,43 @@ var show_data = {
     choices: ['Repeat demo']
 };
 
-var material_trial = function(path) {
-    return {
-        type: jsPsychVideoKeyboardResponse,
-        stimulus: ['stimuli/' + path],
-        controls: true,
-        choices: ["f", "j"],
-        trial_ends_after_video: false
-    }
-};
+timeline = []
 
-var trial_loop = {
-    timeline: [trial, trial, show_data],
-    loop_function: function() {
-        return true;
-    }
-};
-
-if (typeof jsPsych !== "undefined") {
-    jsPsych.run([preload, start, trial_loop]);
-} else {
-    document.body.innerHTML = '<div style="text-align:center; margin-top:50%; transform:translate(0,-50%);">You must be online to view the plugin demo.</div>';
+var mat_trials = jsPsych.randomization.shuffle(paths[group]['material'])
+for (var i = 0; i < mat_trials.length; i++) {
+    timeline.push(
+        {
+            type: jsPsychVideoKeyboardResponse,
+            stimulus: [mat_trials[i]],
+            controls: true,
+            choices: ["f", "j"],
+            width: 1024,
+            height: 768,
+            trial_ends_after_video: false
+        }
+    )
 }
+
+var shape_trials = jsPsych.randomization.shuffle(paths[group]['shape'])
+for (var j = 0; j < shape_trials.length; j++) {
+    timeline.push(
+        {
+            type: jsPsychVideoKeyboardResponse,
+            stimulus: [shape_trials[j][0]],
+            controls: true,
+            choices: ["f", "j"],
+            prompt: "<img src=" + shape_trials[j][1] + " height='25%' width='25%'><img src=" + shape_trials[j][2] + " height='25%' width='25%'>"
+            // prompt: "test"
+        }
+    )
+}
+// var trial_loop = {
+//     timeline: [trial, trial, show_data],
+//     loop_function: function() {
+//         return true;
+//     }
+// };
+
+jsPsych.run(// preload,
+    timeline// , trial_loop
+);
