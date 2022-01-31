@@ -53,10 +53,13 @@ for (var j = 0; j < shape_trials.length; j++) {
     timeline.push(
         {
             type: jsPsychVideoSliderResponse,
+            width: 800,
+            height: 600,
+            slider_width: 400,
             stimulus: [shape_trials[j][0]],
             controls: true,
             choices: ["f", "j"],
-            prompt: "<img src=" + shape_trials[j][sides[0]] + " height='25%' width='25%'><img src=" + shape_trials[j][sides[1]] + " height='25%' width='25%'> <br><br><br>Which image shows the shape in the video? Please adjust the slider to indicate your relative confidence."
+            prompt: "<img src=" + shape_trials[j][sides[0]] + " height='600' width='800'><img src=" + shape_trials[j][sides[1]] + " height='600' width='800'> <br><br><br>Which image shows the shape in the video? Please adjust the above slider to indicate your relative confidence."
         }
     )
 }
