@@ -32,27 +32,31 @@ var mat_trials = jsPsych.randomization.shuffle(paths[group]['material'])
 for (var i = 0; i < mat_trials.length; i++) {
     timeline.push(
         {
-            type: jsPsychVideoKeyboardResponse,
+            type: jsPsychVideoSliderResponse,
             stimulus: [mat_trials[i]],
             controls: true,
             choices: ["f", "j"],
             width: 1024,
             height: 768,
-            trial_ends_after_video: false
+            trial_ends_after_video: false,
+            response_allowed_while_playing: false,
+            prompt: "Which video, left or right, showed the same material as the top video? Please adjust the slider to indicate your relative confidence."
         }
     )
 }
 
 var shape_trials = jsPsych.randomization.shuffle(paths[group]['shape'])
 for (var j = 0; j < shape_trials.length; j++) {
+
+    sides = jsPsych.randomization.shuffle([1, 2])
+
     timeline.push(
         {
-            type: jsPsychVideoKeyboardResponse,
+            type: jsPsychVideoSliderResponse,
             stimulus: [shape_trials[j][0]],
             controls: true,
             choices: ["f", "j"],
-            prompt: "<img src=" + shape_trials[j][1] + " height='25%' width='25%'><img src=" + shape_trials[j][2] + " height='25%' width='25%'>"
-            // prompt: "test"
+            prompt: "<img src=" + shape_trials[j][sides[0]] + " height='25%' width='25%'><img src=" + shape_trials[j][sides[1]] + " height='25%' width='25%'> <br><br><br>Which image shows the shape in the video? Please adjust the slider to indicate your relative confidence."
         }
     )
 }
