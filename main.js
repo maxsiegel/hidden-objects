@@ -22,18 +22,19 @@ var video_scale = .7
 // part 1
 timeline.push(
     {type: jsPsychHtmlButtonResponse,
-     stimulus: "This experiment consists of two parts, the first with 4 and the second with 8 trials. <br><br>First, we will do part 1. On each trial, you will see three videos, one after the other.<br><br>The videos show materials -- particles, fluids, or squishy objects -- interacting with invisible shapes (there is only one invisible shape per video).<br>An example will follow.",
+     stimulus: "This experiment consists of two parts: a first part with 4 trials and a second part with 8 trials.. <br><br>First, we will do part 1. On each trial, you will see three videos, one after the other.<br><br>The videos show materials of various kinds — liquids, particles, squishy or bouncy things — moving and interacting with other objects of various shapes.  <br><br>Your task is to decide whether the material that you have seen in the upper video is more similar to the material in the left or right video at the bottom. <br><br> To give your response, please adjust the slider you will see, using your mouse.",
+     // .<br><br>An example will follow.
      choices: ['Continue']}
 )
 
-timeline.push(
-    {type: jsPsychVideoButtonResponse,
-     stimulus: ["instructions/test.mp4"],
-     width: video_scale * 1620,
-     height: video_scale * 1230,
-     choices: ['Continue'],
-     response_allowed_while_playing: false}
-)
+// timeline.push(
+//     {type: jsPsychVideoButtonResponse,
+//      stimulus: ["instructions/test.mp4"],
+//      width: video_scale * 1620,
+//      height: video_scale * 1230,
+//      choices: ['Continue'],
+//      response_allowed_while_playing: true}
+// )
 
 timeline.push(
     {type: jsPsychHtmlButtonResponse,
@@ -52,7 +53,7 @@ timeline.push(
         height: video_scale*1230,
         slider_width: 800,
         trial_ends_after_video: false,
-        response_allowed_while_playing: false,
+        response_allowed_while_playing: true,
         prompt: "(Practice)<br>Which video, left or right, showed the same material as the top video? Please adjust the slider to indicate your relative confidence. <br><br>" // <br> (note: you can only do so after the video plays)
     }
 )
@@ -77,7 +78,7 @@ for (var i = 0; i < 1; i++) {
             height: video_scale*1230,
             slider_width: 800,
             trial_ends_after_video: false,
-            response_allowed_while_playing: false,
+            response_allowed_while_playing: true,
             prompt: "Which video, left or right, showed the same material as the top video? Please adjust the slider to indicate your relative confidence. <br><br>" // <br> (note: you can only do so after the video plays)
         }
     )
@@ -100,8 +101,8 @@ timeline.push(
         height: video_scale*1230,
         slider_width: 800,
         trial_ends_after_video: false,
-        response_allowed_while_playing: false,
-        prompt: "(Practice)<br>Which video, left or right, showed the same material as the top video? Please adjust the slider to indicate your relative confidence. <br><br>Click the button to begin part 2.", // <br> (note: you can only do so after the video plays)
+        response_allowed_while_playing: true,
+        prompt: "(Practice)<br>Which video, left or right, showed the same shape as the top video? Please adjust the slider to indicate your relative confidence. <br><br>Click the button to begin part 2.", // <br> (note: you can only do so after the video plays)
         button_label: "Begin"
     }
 )
@@ -117,11 +118,12 @@ for (var j = 0; j < 1; j++) {
             type: jsPsychVideoSliderResponse,
             stimulus: [shape_trials[j]],
             controls: true,
+            labels: ['Definitely Left', 'Don\'t Know' , 'Definitely Right'],
             width: video_scale * 1620,
             height: video_scale * 1230,
             slider_width: 800,
             prompt: "Which image (left or right) shows the invisible shape in the top video? Please adjust the above slider to indicate your relative confidence. <br><br>",
-            response_allowed_while_playing: false,
+            response_allowed_while_playing: true,
 
         }
     )
@@ -130,7 +132,7 @@ for (var j = 0; j < 1; j++) {
 var debrief = {
 
     type: jsPsychSurveyHtmlForm,
-    html: '<p>Did you enjoy this experiment? &nbsp&nbsp&nbsp<textarea name="enjoy" rows="5" cols="50"></textarea></p><br><br><br><p>Did you use any strategies?&nbsp&nbsp&nbsp<textarea name="strategy" rows="5" cols="50"></textarea></p><br><br><br>Any other comments?&nbsp&nbsp&nbsp<textarea name="comments" rows="5" cols="50"></textarea><br><br>',
+    html: '<p>Did you enjoy this experiment? &nbsp&nbsp&nbsp<textarea name="enjoy" rows="5" cols="50"></textarea></p><br><br><br><p>Were you aware of using any conscious or deliberate strategy in making the judgments that you did?&nbsp&nbsp&nbsp<textarea name="strategy" rows="5" cols="50"></textarea></p><br><br><br>Any other comments?&nbsp&nbsp&nbsp<textarea name="comments" rows="5" cols="50"></textarea><br><br><br>Please enter your Prolific ID.&nbsp&nbsp<input size = 15 name="prolific"></input>',
     // button_label: 'Return',
     on_finish: function() {
         saveData(createUID(), jsPsych.data.get().csv());

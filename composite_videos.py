@@ -39,8 +39,9 @@ for group in ['Group' + str(i) for i in range(1, 4)]:
             trial[3] = trial[3].replace('png', 'mp4')
             trial[4] = trial[4].replace('png', 'mp4')
         else:
+            tmp = trial[3]
             trial[3] = trial[4].replace('png', 'mp4')
-            trial[4] = trial[3].replace('png', 'mp4')
+            trial[4] = tmp.replace('png', 'mp4')
 
         # stim_name = trial[0] + '_' + trial[1] + '.mp4'
         stim_name = trial[2].split('.')[0] + '__' + trial[3].split('.')[0] + '__' + trial[4].split('.')[0] + '.mp4'
@@ -79,8 +80,9 @@ for group in ['Group' + str(i) for i in range(1, 4)]:
             trial[3] = trial[3].replace('png', 'mp4')
             trial[4] = trial[4].replace('png', 'mp4')
         else:
+            tmp = trial[3]
             trial[3] = trial[4].replace('png', 'mp4')
-            trial[4] = trial[3].replace('png', 'mp4')
+            trial[4] = tmp.replace('png', 'mp4')
 
         stim_name =  trial[2].split('.')[0] + '__' + trial[3].split('.')[0] + '__' + trial[4].split('.')[0] + '.mp4'
         cmd = [
@@ -98,3 +100,8 @@ for group in ['Group' + str(i) for i in range(1, 4)]:
                                       # join(group_base_path, 'shape', folder, trial[3]),
                                       # join(group_base_path, 'shape', folder, trial[4])# ]
         )
+
+import json
+
+with open('paths.json','w') as f:
+    json.dump(paths, f)
