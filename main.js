@@ -29,6 +29,8 @@ var show_data = {
 timeline = []
 
 var mat_trials = jsPsych.randomization.shuffle(paths[group]['material'])
+
+var video_scale = .7
 for (var i = 0; i < mat_trials.length; i++) {
     timeline.push(
         {
@@ -36,9 +38,11 @@ for (var i = 0; i < mat_trials.length; i++) {
             stimulus: [mat_trials[i]],
             controls: true,
             choices: ["f", "j"],
-            width: 1620,
-            height: 1230,
-    slider_width: 400,
+            labels: ['Definitely Left', 'Don\'t Know' , 'Definitely Right'],
+            require_movement: true,
+            width: video_scale*1620,
+            height: video_scale*1230,
+            slider_width: 800,
             trial_ends_after_video: false,
             response_allowed_while_playing: true,
             prompt: "Which video, left or right, showed the same material as the top video? Please adjust the slider to indicate your relative confidence. <br><br>" // <br> (note: you can only do so after the video plays)
@@ -50,17 +54,14 @@ for (var i = 0; i < mat_trials.length; i++) {
 var shape_trials = jsPsych.randomization.shuffle(paths[group]['shape'])
 for (var j = 0; j < shape_trials.length; j++) {
 
-    sides = jsPsych.randomization.shuffle([1, 2])
-
     timeline.push(
         {
             type: jsPsychVideoSliderResponse,
             stimulus: [shape_trials[j]],
             controls: true,
-            width: 1620,
-            height: 1230,
-            slider_width: 400,
-            choices: ["f", "j"],
+            width: video_scale * 1620,
+            height: video_scale * 1230,
+            slider_width: 800,
             prompt: "Which image (left or right) shows the invisible shape in the top video? Please adjust the above slider to indicate your relative confidence. <br><br>"
         }
     )
