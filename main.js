@@ -41,7 +41,8 @@ for (var i = 0; i < mat_trials.length; i++) {
     slider_width: 400,
             trial_ends_after_video: false,
             response_allowed_while_playing: true,
-            prompt: "Which video, left or right, showed the same material as the top video? Please adjust the slider to indicate your relative confidence. <br> (note: you can only do so after the video plays)"
+            prompt: "Which video, left or right, showed the same material as the top video? Please adjust the slider to indicate your relative confidence. <br><br>" // <br> (note: you can only do so after the video plays)
+
         }
     )
 }
@@ -60,7 +61,7 @@ for (var j = 0; j < shape_trials.length; j++) {
             height: 1230,
             slider_width: 400,
             choices: ["f", "j"],
-            prompt: "Which image, left or right shows the shape in the video? Please adjust the above slider to indicate your relative confidence."
+            prompt: "Which image (left or right) shows the invisible shape in the top video? Please adjust the above slider to indicate your relative confidence. <br><br>"
         }
     )
 }
