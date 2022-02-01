@@ -22,7 +22,7 @@ var video_scale = .7
 // part 1
 timeline.push(
     {type: jsPsychHtmlButtonResponse,
-     stimulus: "This experiment consists of two parts, the first with 4 and the second with 8 trials. First, we will do part 1. On each trial, you will see three videos, one after the other.<br><br>The videos show materials -- particles, fluids, or squishy objects -- interacting with invisible shapes (there is only one invisible shape per video).<br>An example will follow.",
+     stimulus: "This experiment consists of two parts, the first with 4 and the second with 8 trials. <br><br>First, we will do part 1. On each trial, you will see three videos, one after the other.<br><br>The videos show materials -- particles, fluids, or squishy objects -- interacting with invisible shapes (there is only one invisible shape per video).<br>An example will follow.",
      choices: ['Continue']}
 )
 
