@@ -65,8 +65,8 @@ timeline.push(
      choices: ['Begin']}
 )
 
-// for (var i = 0; i < mat_trials.length; i++) {
-for (var i = 0; i < 1; i++) {
+for (var i = 0; i < mat_trials.length; i++) {
+// for (var i = 0; i < 1; i++) {
     timeline.push(
         {
             type: jsPsychVideoSliderResponse,
@@ -110,8 +110,8 @@ timeline.push(
 
 
 var shape_trials = jsPsych.randomization.shuffle(paths[group]['shape'])
-// for (var j = 0; j < shape_trials.length; j++) {
-for (var j = 0; j < 1; j++) {
+for (var j = 0; j < shape_trials.length; j++) {
+// for (var j = 0; j < 1; j++) {
 
     timeline.push(
         {
