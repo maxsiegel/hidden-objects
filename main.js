@@ -36,7 +36,7 @@ timeline.push(
 
 timeline.push(
     {type: jsPsychHtmlButtonResponse,
-     stimulus: "Your job is to decide whether the material that you see in the upper video is more similar to the material in the left or the right video at the bottom. To give your response, please adjust the slider, pictured below, using your mouse.<br><br><img src=\"instructions/slider.png\" width=\"75%\"><br>The more certain you are that it is the material on the left, the further left you should set the slider. <br>The more certain you are that it is the material on the right, the further right you should set the slider. <br><br><br>You can replay the videos by pressing the play button at the bottom left of the video. In order to respond you must watch the video at least once.<br>We will start with a practice round. ",
+     stimulus: "Your job is to decide whether the material that you see in the upper video is more similar to the material in the left or the right video at the bottom. To give your response, please adjust the slider, pictured below, using your mouse.<br><br><br><br><img src=\"instructions/slider.png\" width=\"75%\"><br><br><br>The more certain you are that it is the material on the left, the further left you should set the slider. <br>The more certain you are that it is the material on the right, the further right you should set the slider. <br><br><br>You can replay the videos by pressing the play button at the bottom left of the video. In order to respond you must watch the video at least once.<br>We will start with a practice round. ",
      choices: ['Continue']}
 )
 
