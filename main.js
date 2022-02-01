@@ -31,7 +31,8 @@ timeline.push(
      stimulus: ["instructions/test.mp4"],
      width: video_scale * 1620,
      height: video_scale * 1230,
-     choices: ['Continue']}
+     choices: ['Continue'],
+     response_allowed_while_playing: false}
 )
 
 timeline.push(
