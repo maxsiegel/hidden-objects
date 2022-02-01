@@ -102,12 +102,17 @@ timeline.push(
         slider_width: 800,
         trial_ends_after_video: false,
         response_allowed_while_playing: true,
-        prompt: "(Practice)<br>Which video, left or right, showed the same shape as the top video? Please adjust the slider to indicate your relative confidence. <br><br>Click the button to begin part 2.", // <br> (note: you can only do so after the video plays)
-        button_label: "Begin"
+        prompt: "(Practice)<br>Which video, left or right, showed the same shape as the top video? Please adjust the slider to indicate your relative confidence.", // <br> (note: you can only do so after the video plays)
+        button_label: "Continue"
     }
 )
 
 
+timeline.push(
+    {type: jsPsychHtmlButtonResponse,
+     stimulus: "Now it's time to begin part 2 of the experiment.",
+     choices: ['Begin']}
+)
 
 var shape_trials = jsPsych.randomization.shuffle(paths[group]['shape'])
 for (var j = 0; j < shape_trials.length; j++) {
