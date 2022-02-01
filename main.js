@@ -36,7 +36,7 @@ timeline.push(
 
 timeline.push(
     {type: jsPsychHtmlButtonResponse,
-     stimulus: "Your job is to decide whether the material that you see in the upper video is more similar to the material in the left or the right video at the bottom. To give your response, please adjust the slider, pictured below, using your mouse.<br><br><br><br><img src=\"instructions/slider.png\" width=\"75%\"><br><br><br>The more certain you are that it is the material on the left, the further left you should set the slider. <br>The more certain you are that it is the material on the right, the further right you should set the slider. <br><br><br>You can replay the videos by pressing the play button at the bottom left of the video. In order to respond you must watch the video at least once.<br>We will start with a practice round. ",
+     stimulus: "Your job is to decide whether the material that you see in the upper video is more similar to the material in the left or the right video at the bottom. To give your response, please adjust the slider, pictured below, using your mouse.<br><br><br><br><img src=\"instructions/slider.png\" width=\"75%\"><br><br><br>The more certain you are that it is the material on the left, the further left you should set the slider. <br>The more certain you are that it is the material on the right, the further right you should set the slider. <br><br><br>You can replay the videos by pressing the play button at the bottom left of the video. In order to respond and continue, you must watch the videos at least once.<br>We will start with a practice round. ",
      choices: ['Continue']}
 )
 
@@ -51,7 +51,7 @@ timeline.push(
         height: video_scale*1230,
         slider_width: 800,
         trial_ends_after_video: false,
-        response_allowed_while_playing: true,
+        response_allowed_while_playing: false,
         prompt: "(Practice)<br>Which video, left or right, showed the same material as the top video? Please adjust the slider to indicate your relative confidence. <br><br>" // <br> (note: you can only do so after the video plays)
     }
 )
@@ -76,7 +76,7 @@ for (var i = 0; i < 1; i++) {
             height: video_scale*1230,
             slider_width: 800,
             trial_ends_after_video: false,
-            response_allowed_while_playing: true,
+            response_allowed_while_playing: false,
             prompt: "Which video, left or right, showed the same material as the top video? Please adjust the slider to indicate your relative confidence. <br><br>" // <br> (note: you can only do so after the video plays)
         }
     )
@@ -99,7 +99,7 @@ timeline.push(
         height: video_scale*1230,
         slider_width: 800,
         trial_ends_after_video: false,
-        response_allowed_while_playing: true,
+        response_allowed_while_playing: false,
         prompt: "(Practice)<br>Which video, left or right, showed the same material as the top video? Please adjust the slider to indicate your relative confidence. <br><br>Click the button to begin part 2.", // <br> (note: you can only do so after the video plays)
         button_label: "Begin"
     }
