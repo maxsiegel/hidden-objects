@@ -120,7 +120,9 @@ for (var j = 0; j < 1; j++) {
             width: video_scale * 1620,
             height: video_scale * 1230,
             slider_width: 800,
-            prompt: "Which image (left or right) shows the invisible shape in the top video? Please adjust the above slider to indicate your relative confidence. <br><br>"
+            prompt: "Which image (left or right) shows the invisible shape in the top video? Please adjust the above slider to indicate your relative confidence. <br><br>",
+            response_allowed_while_playing: false,
+
         }
     )
 }
