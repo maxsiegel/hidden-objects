@@ -1,0 +1,12 @@
+paths = {'Group4': {'material': ['stimuli/Group4/material/stairsA_camA_granularA__stairsB_camB_granularA__stairsB_camB_granularB.mp4',
+                                 'stimuli/Group4/material/cubeA_camA_liquidA__cubeB_camB_liquidB__cubeB_camB_liquidA.mp4',
+                                 'stimuli/Group4/material/freeShapeA_camA_nonrigidA__freeShapeB_camB_nonrigidA__freeShapeB_camB_nonrigidB.mp4',
+                                 'stimuli/Group4/material/boxA_camA_granularA__boxB_camB_granularA__boxB_camB_granularB.mp4',
+                                 'stimuli/Group4/material/stairsA_camA_liquidA__stairsB_camB_liquidA__stairsB_camB_liquidB.mp4',
+                                 'stimuli/Group4/material/cubeA_camA_nonrigidA__cubeB_camB_nonrigidA__cubeB_camB_nonrigidB.mp4',
+                                 'stimuli/Group4/material/freeShapeA_camA_granularA__freeShapeB_camB_granularA__freeShapeB_camB_granularB.mp4',
+                                 'stimuli/Group4/material/boxA_camA_liquidA__boxB_camB_liquidB__boxB_camB_liquidA.mp4',
+                                 'stimuli/Group4/material/stairsA_camA_nonrigidA__stairsB_camB_nonrigidA__stairsB_camB_nonrigidB.mp4',
+                                 'stimuli/Group4/material/cubeA_camA_granularA__cubeB_camB_granularB__cubeB_camB_granularA.mp4',
+                                 'stimuli/Group4/material/freeShapeA_camA_liquidA__freeShapeB_camB_liquidA__freeShapeB_camB_liquidB.mp4',
+                                 'stimuli/Group4/material/boxA_camA_nonrigidA__boxB_camB_nonrigidB__boxB_camB_nonrigidA.mp4']}}
