@@ -150,7 +150,7 @@ var done = {
     stimulus: "<b>Click the button below to submit and return to Prolific.<br><br></b>",
     choices: ["Return"],
     on_finish: function() {
-        location.href = "http://www.google.com"
+        // location.href = "http://www.google.com"
     }
 }
 timeline.push(done)
