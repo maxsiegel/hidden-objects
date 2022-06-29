@@ -1,5 +1,6 @@
 import sys
 from os.path import join
+import json
 import pickle
 import os
 from random import randint
@@ -48,7 +49,7 @@ def make_box():
     return box
 
 def make_cloth():
-    ndiv = 100
+    ndiv = 200
     bpy.ops.mesh.primitive_grid_add(x_subdivisions=ndiv, y_subdivisions=ndiv)
     cloth = bpy.context.active_object
     cloth.location = Vector((0, 0, 1.5))
@@ -135,7 +136,7 @@ def bake(cloth):
     # bpy.ops.ptcache.bake_all()
 
     scene = bpy.data.scenes['Scene']
-    scene.frame_end = 10
+    scene.frame_end = 100
     cloth.modifiers['Cloth'].point_cache.frame_end = scene.frame_end
 
     maybe_mkdir('simulations')
@@ -144,8 +145,8 @@ def bake(cloth):
 
     bpy.data.scenes['Scene'].render.filepath = folder + '/'
 
-    with open(join(folder, 'config'), 'wb') as f:
-        pickle.dump(extract_settings(cloth), f)
+    with open(join(folder, 'config.json'), 'w') as f:
+        json.dump(extract_settings(cloth), f)
 
 def render():
     rd = bpy.context.scene.render
@@ -161,8 +162,13 @@ def render():
 
     bpy.ops.render.render(animation=True)
 
-box = make_box()
-cloth = make_cloth()
 
-bake(cloth)
-render()
+def cube_random_settings():
+    box = make_box()
+    cloth = make_cloth()
+
+    bake(cloth)
+    render()
+
+for i in range(10):
+    cube_random_settings()
