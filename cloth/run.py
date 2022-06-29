@@ -2,7 +2,7 @@ from multiprocessing import Pool
 import subprocess as sp
 
 # has to be a list of command and args
-cmd = 'blender -b -t --python blender_script.py'.split(' ')
+cmd = 'blender -b --python blender_script.py'.split(' ')
 
 def wrap(x):
     sp.check_call(cmd)
