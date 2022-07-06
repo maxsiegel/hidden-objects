@@ -8,7 +8,6 @@ def wrap(x):
     sp.check_call(cmd)
 
 if __name__ == '__main__':
-    p = Pool(8)
+    p = Pool(25)
 
-
-    p.map(wrap, range(20))
+    p.map(wrap, range(100))

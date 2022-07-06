@@ -160,6 +160,7 @@ def render():
     # Set the codec
     rd.ffmpeg.codec = "H264"
 
+    rd.engine = 'BLENDER_EEVEE'
     bpy.ops.render.render(animation=True)
 
 
