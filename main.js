@@ -19,6 +19,8 @@ var mat_trials = jsPsych.randomization.shuffle(paths[group]['material'])
 
 var video_scale = .7
 
+var RESPONSE_WHILE_VIDEO = false;
+
 // part 1
 timeline.push(
     {type: jsPsychHtmlButtonResponse,
@@ -33,7 +35,7 @@ timeline.push(
 //      width: video_scale * 1620,
 //      height: video_scale * 1230,
 //      choices: ['Continue'],
-//      response_allowed_while_playing: true}
+//      response_allowed_while_playing: RESPONSE_WHILE_VIDEO}
 // )
 
 timeline.push(
@@ -53,7 +55,7 @@ timeline.push(
         height: video_scale*1230,
         slider_width: 800,
         trial_ends_after_video: false,
-        response_allowed_while_playing: true,
+        response_allowed_while_playing: RESPONSE_WHILE_VIDEO,
         prompt: "(Practice)<br>Which video, left or right, showed the same material as the top video? Please adjust the slider to indicate your relative confidence. <br><br>" // <br> (note: you can only do so after the video plays)
     }
 )
@@ -78,7 +80,7 @@ for (var i = 0; i < mat_trials.length; i++) {
             height: video_scale*1230,
             slider_width: 800,
             trial_ends_after_video: false,
-            response_allowed_while_playing: true,
+            response_allowed_while_playing: RESPONSE_WHILE_VIDEO,
             prompt: "Which video, left or right, showed the same material as the top video? Please adjust the slider to indicate your relative confidence. <br><br>" // <br> (note: you can only do so after the video plays)
         }
     )
@@ -101,7 +103,7 @@ timeline.push(
         height: video_scale*1230,
         slider_width: 800,
         trial_ends_after_video: false,
-        response_allowed_while_playing: true,
+        response_allowed_while_playing: RESPONSE_WHILE_VIDEO,
         prompt: "(Practice)<br>Which video, left or right, showed the same shape as the top video? Please adjust the slider to indicate your relative confidence.", // <br> (note: you can only do so after the video plays)
         button_label: "Continue"
     }
@@ -128,7 +130,7 @@ for (var j = 0; j < shape_trials.length; j++) {
             height: video_scale * 1230,
             slider_width: 800,
             prompt: "Which image (left or right) shows the invisible shape in the top video? Please adjust the above slider to indicate your relative confidence. <br><br>",
-            response_allowed_while_playing: true,
+            response_allowed_while_playing: RESPONSE_WHILE_VIDEO,
 
         }
     )
