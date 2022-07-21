@@ -149,18 +149,18 @@ def bake(cloth):
         json.dump(extract_settings(cloth), f)
 
 def render():
-    rd = bpy.context.scene.render
+    render = bpy.context.scene.render
 
     # Set output type
-    rd.image_settings.file_format = "FFMPEG"
+    render.image_settings.file_format = "FFMPEG"
 
     # Set output format
-    rd.ffmpeg.format = "MPEG4"
+    render.ffmpeg.format = "MPEG4"
 
     # Set the codec
-    rd.ffmpeg.codec = "H264"
+    render.ffmpeg.codec = "H264"
 
-    rd.engine = 'BLENDER_EEVEE'
+    render.engine = 'BLENDER_EEVEE'
     bpy.ops.render.render(animation=True)
 
 
