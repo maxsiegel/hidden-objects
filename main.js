@@ -20,7 +20,7 @@ var mat_trials = jsPsych.randomization.shuffle(paths[group]['material'])
 
 var video_scale = .7
 
-var RESPONSE_WHILE_VIDEO = false;
+var RESPONSE_WHILE_VIDEO = true;
 
 // part 1
 timeline.push({
@@ -68,6 +68,11 @@ timeline.push({
 
 for (var i = 0; i < mat_trials.length; i++) {
     // for (var i = 0; i < 1; i++) {
+    // els = mat_trials[i].split("__")
+    // if (flip()) {
+    //     stimulus = els[0] + '__' + els[2] + '__' + els[1]
+    // }
+
     timeline.push({
         type: jsPsychVideoSliderResponse,
         stimulus: [mat_trials[i]],
