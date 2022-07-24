@@ -18,6 +18,11 @@ def extract_strings(x):
 
 paths = {}
 
+
+# --------------------------------------------------------------------------------
+# BEWARE: composite_videos.sh needs to have different start_delay etc for material and shape
+
+
 for group in ['Group' + str(i) for i in range(1, 4)]:
 
     paths[group] = {}
@@ -45,20 +50,20 @@ for group in ['Group' + str(i) for i in range(1, 4)]:
             trial[4] = tmp.replace('png', 'mp4')
 
         # stim_name = trial[0] + '_' + trial[1] + '.mp4'
-        stim_name = trial[2].split('.')[0] + '__' + trial[3].split('.')[0] + '__' + trial[4].split('.')[0] + '.mp4'
+        stim_name = trial[2].split('.')[0] + '_' + trial[3].split('.')[0] + '_' + trial[4].split('.')[0] + '.mp4'
         # args 2 3 4 are stimuli filenames
-        print(trial[2], trial[3], trial[4])
-        cmd = [
-            'bash',
-            'composite_videos.sh',
-            join(group_base_path, 'material', stim_name),
-            trial[2],
-            trial[3],
-            trial[4],
-        ]
+        # print(trial[2], trial[3], trial[4])
+        # cmd = [
+        #     'bash',
+        #     'composite_videos.sh',
+        #     join(group_base_path, 'material', stim_name),
+        #     trial[2],
+        #     trial[3],
+        #     trial[4],
+        # ]
         # import pdb; pdb.set_trace()
 
-        sp.call(cmd)
+        # sp.call(cmd)
         # print(cmd)
         paths[group]['material'].append(join(group_base_path, 'material', stim_name))
 
@@ -66,14 +71,14 @@ for group in ['Group' + str(i) for i in range(1, 4)]:
     paths[group]['shape'] = []
     shape_trials = group_trials['shapeStim']
 
-    for trial in extract_strings(shape_trials)[:0]:
+    for trial in extract_strings(shape_trials):
         # print(trial)
         # import pdb; pdb.set_trace()
 
-        print('--------------------------------------------------------------------------------')
-        print(trial)
-        print(re.findall('[A-C][^A-C]*', trial[3]))
-        a_or_b_or_c = re.findall('[A-C][^A-C]*', trial[3])[1][0]
+        # print('--------------------------------------------------------------------------------')
+        # print(trial)
+        # print(re.findall('[A-C][^A-C]*', trial[3]))
+        # a_or_b_or_c = re.findall('[A-C][^A-C]*', trial[3])[1][0]
 
 
         # folder = trial[0] + '_' + trial[1] + a_or_b_or_c
@@ -92,17 +97,17 @@ for group in ['Group' + str(i) for i in range(1, 4)]:
             trial[3] = trial[4].replace('png', 'mp4')
             trial[4] = tmp.replace('png', 'mp4')
 
-        stim_name =  trial[2].split('.')[0] + '__' + trial[3].split('.')[0] + '__' + trial[4].split('.')[0] + '.mp4'
-        cmd = [
-            'bash',
-            'composite_videos.sh',
-            join(group_base_path, 'shape', stim_name),
-            trial[2],
-            trial[3],
-            trial[4],
-        ]
+        stim_name =  trial[2].split('.')[0] + '_' + trial[3].split('.')[0] + '_' + trial[4].split('.')[0] + '.mp4'
+        # cmd = [
+        #     'bash',
+        #     'composite_videos.sh',
+        #     join(group_base_path, 'shape', stim_name),
+        #     trial[2],
+        #     trial[3],
+        #     trial[4],
+        # ]
         # print('command: ' + ' '.join(cmd))
-        sp.call(cmd)
+        # sp.call(cmd)
         paths[group]['shape'].append(# [
             join(group_base_path, 'shape', stim_name)# ,
                                       # join(group_base_path, 'shape', folder, trial[3]),
@@ -111,5 +116,5 @@ for group in ['Group' + str(i) for i in range(1, 4)]:
 
 import json
 
-with open('paths_rerun_exp1_material.json','w') as f:
+with open('paths.json','w') as f:
     json.dump(paths, f)

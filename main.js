@@ -66,16 +66,28 @@ timeline.push({
     choices: ['Begin']
 })
 
+
+randomize = randperm(mat_trials.length).map(x => x % 2)
 for (var i = 0; i < mat_trials.length; i++) {
     // for (var i = 0; i < 1; i++) {
-    // els = mat_trials[i].split("__")
-    // if (flip()) {
-    //     stimulus = els[0] + '__' + els[2] + '__' + els[1]
-    // }
+    // for (var i = 0; i < 1; i++) {
+    els = mat_trials[i].split("/")
+    head = els[0] + '/' + els[1] + '/' + els[2] + '/'
+    if (randomize[i]) {
+        s = els[3].split('_')
+        stim = head + s[0] + '_' + s[1] + '_' + s[2] + '_' + s[6] + '_' + s[7] + '_' + s[8].split('.')[0] + '_' + s[3] + '_' + s[4] + '_' + s[5] + '.mp4'
+        // console.log('--------------------------------------------------------------------------------')
+        // console.log(mat_trials[i].split("/"))
+        // console.log(stim)
+        // console.log('--------------------------------------------------------------------------------')
+    } else {
+        stim = mat_trials[i]
+    }
 
+    console.log(stim)
     timeline.push({
         type: jsPsychVideoSliderResponse,
-        stimulus: [mat_trials[i]],
+        stimulus: [stim],
         controls: true,
         labels: ['Definitely Left', 'Don\'t Know', 'Definitely Right'],
         require_movement: true,
@@ -117,12 +129,26 @@ timeline.push({
 })
 
 var shape_trials = jsPsych.randomization.shuffle(paths[group]['shape'])
+randomize = randperm(shape_trials.length).map(x => x % 2)
 for (var j = 0; j < shape_trials.length; j++) {
     // for (var j = 0; j < 1; j++) {
 
+    els = shape_trials[j].split("/")
+    head = els[0] + '/' + els[1] + '/' + els[2] + '/'
+    if (randomize[j]) {
+        s = els[3].split('_')
+        stim = head + s[0] + '_' + s[1] + '_' + s[2] + '_' + s[6] + '_' + s[7] + '_' + s[8].split('.')[0] + '_' + s[3] + '_' + s[4] + '_' + s[5] + '.mp4'
+        // console.log('--------------------------------------------------------------------------------')
+        // console.log(mat_trials[i].split("/"))
+        // console.log(stim)
+        // console.log('--------------------------------------------------------------------------------')
+    } else {
+        stim = shape_trials[j]
+    }
+
     timeline.push({
         type: jsPsychVideoSliderResponse,
-        stimulus: [shape_trials[j]],
+        stimulus: [stim],
         controls: true,
         labels: ['Definitely Left', 'Don\'t Know', 'Definitely Right'],
         width: video_scale * 1620,

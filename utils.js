@@ -1,4 +1,3 @@
-
 var show_data = {
     type: jsPsychHtmlButtonResponse,
     stimulus: function() {
@@ -19,7 +18,32 @@ function saveData(name, data) {
         data: data
     }));
 }
+
 function createUID() {
     UID = "T" + Date.now() + "_K" + Math.floor((Math.random() * 100000000) + 1);
     return UID
+}
+
+function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+}
+
+function flip() {
+    return getRandomInt(2)
+}
+
+function randperm(maxValue) {
+    // first generate number sequence
+    var permArray = new Array(maxValue);
+    for (var i = 0; i < maxValue; i++) {
+        permArray[i] = i;
+    }
+    // draw out of the number sequence
+    for (var i = (maxValue - 1); i >= 0; --i) {
+        var randPos = Math.floor(i * Math.random());
+        var tmpStore = permArray[i];
+        permArray[i] = permArray[randPos];
+        permArray[randPos] = tmpStore;
+    }
+    return permArray;
 }
