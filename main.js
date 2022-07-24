@@ -20,7 +20,7 @@ var mat_trials = jsPsych.randomization.shuffle(paths[group]['material'])
 
 var video_scale = .7
 
-var RESPONSE_WHILE_VIDEO = true;
+var RESPONSE_WHILE_VIDEO = false;
 
 // part 1
 timeline.push({
