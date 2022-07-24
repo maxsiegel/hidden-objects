@@ -25,7 +25,7 @@ var RESPONSE_WHILE_VIDEO = true;
 // part 1
 timeline.push({
     type: jsPsychHtmlButtonResponse,
-    stimulus: "This experiment consists of two parts: a first part with 6 trials and a second part with 12 trials. <br><br>First, we will do part 1. On each trial, you will see three videos, one after the other. <br><br>The videos show materials of various kinds — liquids, particles, squishy or bouncy things — moving and interacting with other objects of various shapes. <br><br>Your task is to decide whether the material that you have seen in the upper video is more similar to the material in the left or right video at the bottom. <br><br> To give your response, please adjust the slider you will see, using your mouse.",
+    stimulus: "This experiment consists of two parts: a first part with 9 trials and a second part with 12 trials. <br><br>First, we will do part 1. On each trial, you will see three videos, one after the other. <br><br>The videos show materials of various kinds — liquids, particles, squishy or bouncy things — moving and interacting with other objects of various shapes. <br><br>Your task is to decide whether the material that you have seen in the upper video is more similar to the material in the left or right video at the bottom. <br><br> To give your response, please adjust the slider you will see, using your mouse.",
     // .<br><br>An example will follow.
     choices: ['Continue']
 })
